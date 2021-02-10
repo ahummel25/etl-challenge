@@ -1,7 +1,6 @@
 
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.SparkSession
-import slick.jdbc.SQLiteProfile.api._
 
 import DB.{getDBConn, runStmt}
 
@@ -21,10 +20,12 @@ object PermitsETL {
 
     val result = scala.io.Source.fromURL(url).mkString
     val jsonResponseOneLine = result.stripLineEnd
-    val jsonRdd = spark.sparkContext.parallelize(jsonResponseOneLine :: Nil).
+    val jsonRdd = spark.sparkContext.parallelize(jsonResponseOneLine :: Nil)
 
     val df = spark.read.json(jsonRdd)
     df.createOrReplaceTempView(memoryTableName)
+
+//    df.map()
 
     val recentRecordsDf = spark.sql("SELECT * FROM " + memoryTableName + " WHERE CAST(issue_date AS DATE) > '2019-12-31'")
     println("You have " + recentRecordsDf.count() + " new permits issued within the last year")
@@ -34,7 +35,7 @@ object PermitsETL {
 
     // Drop table if persisted
     val db = getDBConn()
-    runStmt(db, "DROP TABLE IF EXISTS permits;")
+    runStmt(db, "DELETE FROM permits;")
 
     // Add inserts here
 
