@@ -19,3 +19,4 @@ libraryDependencies ++= Seq(
 fork := true
 
 addCommandAlias("ETL", "runMain PermitsETL")
+addCommandAlias("ETLPrint", "runMain PermitsETL print")
