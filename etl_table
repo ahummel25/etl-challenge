@@ -1,5 +1,5 @@
-CREATE TABLE permits(
-   ID INT PRIMARY KEY     NOT NULL,
+CREATE TABLE PERMITS (
+   ID TEXT PRIMARY KEY     NOT NULL,
    PERMIT         TEXT,
    PERMIT_TYPE    TEXT,
    REVIEW_TYPE TEXT,
@@ -7,10 +7,16 @@ CREATE TABLE permits(
    ISSUE_DATE            TEXT,
    PROCESSING_TIME        TEXT,
    STREET_NUMBER         TEXT,
+   STREET_DIRECTION TEXT,
+   STREET_NAME TEXT,
    SUFFIX  TEXT,
    work_description TEXT,
    building_fee_paid TEXT,
    zoning_fee_paid TEXT,
+   other_fee_paid TEXT,
+   subtotal_paid TEXT,
+   building_fee_unpaid TEXT,
+   zoning_fee_unpaid TEXT,
    other_fee_unpaid TEXT,
    subtotal_unpaid TEXT,
    building_fee_waived TEXT,
@@ -24,6 +30,10 @@ CREATE TABLE permits(
    contact_1_state TEXT,
    contact_1_zipcode TEXT,
    reported_cost TEXT,
+   pin1 TEXT,
+   community_area TEXT,
+   census_tract TEXT,
+   ward TEXT,
    xcoordinate TEXT,
    ycoordinate TEXT,
    latitude TEXT,
@@ -36,3 +46,7 @@ CREATE TABLE permits(
    computed_region_43wa_7qmu TEXT,
    computed_region_awaf_s7ux TEXT
 );
+
+INSERT INTO permits
+VALUES
+(38, 21869, 28, 751, 48, 14, '2020-08-12T00:00:00.000', 300, 0, 0, 140400, 14, null, null, null, null, null, null, null, null, null, null, CHICAGO, WERNER KREBS, IL, OWNER OCCUPIED, 60630, STREAMWOOD, KACPRZYNSKI ANDRZEJ, IL, ARCHITECT, 60107, DARIEN, OMEGA DESIGN, INC., IL, EXPEDITOR, 60561-, CHICAGO, MR. PORCH, INCORPORATED, IL, CONTRACTOR-GENERAL CONTRACTOR, 60618-, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 3138353, 2020-08-12T00:00:00.000, 41.969602143, [WrappedArray(-87.739071118225, 41.969602142937),Point], -87.739071118, 0, 0, 0, 100886550, PERMIT - RENOVATION/ALTERATION, 13-10-323-003-0000, null, null, null, null, null, null, null, null, null, 0, 11595, STANDARD PLAN REVIEW, N, KENNETH, 4849, 375, 0, 0, AVE, 375, 39, REMOVE AND REPLACE EXISTING REAR OPEN WOOD PORCH AND STAIRS AS PER PLAN. SAME SIZE AND LOCATION AS EXISTING., 1145855.2090823082, 1932073.3702951442, 75, 0, 0);
