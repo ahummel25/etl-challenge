@@ -80,8 +80,6 @@ class Permits(tag: Tag) extends Table[PermitsTable](tag, "permits") {
     ).mapTo[PermitsTable]
 }
 
-case class Person (name: String, age: Long)
-
 object PermitsETL {
   def main(args: Array[String]): Unit = {
     val url = "https://data.cityofchicago.org/resource/building-permits.json"
