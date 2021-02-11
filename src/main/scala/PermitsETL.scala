@@ -32,7 +32,7 @@ object PermitsETL {
     println("You have " + recentRecordsDf.count() + " new permits issued within the last year")
 
     val unpaidBuildingFees = spark.sql("SELECT SUM(CAST(building_fee_unpaid AS INT)) as total_unpaid_building_fees FROM " + memoryTableName + " WHERE CAST(building_fee_unpaid AS INT) > 0").first()
-    println("You have a total of $" + unpaidBuildingFees.get(0) + " in unpaid building fees within the last year")
+    println("You have a total of $" + unpaidBuildingFees.get(0) + " in unpaid building fees")
 
     // Clear table if data is persisted
     val db = getDBConn()
