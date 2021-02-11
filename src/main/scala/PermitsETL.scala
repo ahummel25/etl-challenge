@@ -1,11 +1,11 @@
 
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.SparkSession
-import DB.getDBConn
 import scala.concurrent.duration._
+import scala.concurrent.Await
 import slick.jdbc.SQLiteProfile.api._
 
-import scala.concurrent.Await
+import DB.getDBConn
 
 object PermitsETL {
   def main(args: Array[String]): Unit = {
