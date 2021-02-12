@@ -1,3 +1,5 @@
+package etlchallenge
+
 import slick.jdbc.SQLiteProfile.api._
 
 object DB {

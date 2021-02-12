@@ -1,4 +1,4 @@
-package utils
+package etlchallenge.utils
 
 import org.apache.spark.sql.types.{StringType, StructField, StructType, ArrayType}
 

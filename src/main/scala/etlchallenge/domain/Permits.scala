@@ -1,4 +1,4 @@
-package domain
+package etlchallenge.domain
 
 import slick.collection.heterogeneous.HNil
 import slick.jdbc.SQLiteProfile.api._

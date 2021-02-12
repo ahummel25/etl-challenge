@@ -1,4 +1,4 @@
-package utils
+package etlchallenge.utils
 
 object Values {
   def checkIfNull(value: Any): String = Option(value) match {
